@@ -1,0 +1,65 @@
+/* Login Page */
+.login-form input[type="text"],
+.login-form input[type="password"] {
+  background-color: #333333;
+  border: none;
+  border-radius: 5px;
+  color: #ffffff;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.login-form button {
+  background-color: #4caf50;
+  border: none;
+  border-radius: 5px;
+  color: #ffffff;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+/* Dashboard Page */
+.dashboard-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+}
+
+.dashboard-container div {
+  background-color: #333333;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.dashboard-container h3 {
+  color: #ffffff;
+  margin: 0;
+}
+
+.dashboard-container p {
+  color: #ffffff;
+  margin: 10px 0;
+}
+
+/* Register Page */
+.register-form input[type="text"],
+.register-form input[type="email"],
+.register-form input[type="password"] {
+  background-color: #333333;
+  border: none;
+  border-radius: 5px;
+  color: #ffffff;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.register-form button {
+  background-color: #4caf50;
+  border: none;
+  border-radius: 5px;
+  color: #ffffff;
+  padding: 10px 20px;
+  cursor: pointer;
+}

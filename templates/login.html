@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            background-color: #222;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            max-width: 500px;
+            padding: 20px;
+            background-color: #333;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            color: #fff;
+            font-size: 24px;
+            margin-top: 0;
+            text-align: center;
+        }
+
+        .login-form label {
+            display: block;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .login-form input[type="text"],
+        .login-form input[type="password"] {
+            background-color: #444;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            padding: 10px;
+            margin-bottom: 10px;
+            width: 90%;
+        }
+
+        .login-form button {
+            background-color: #4caf50;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            padding: 10px 20px;
+            cursor: pointer;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        <form class="login-form" method="POST" action="{% url 'login' %}">
+            {% csrf_token %}
+            <label>
+                <input type="text" name="username" placeholder="Username">
+            </label>
+            <label>
+                <input type="password" name="password" placeholder="Password">
+            </label>
+            <button type="submit">Login</button>
+        </form>
+        <div class="footer">
+            <p>Don't have an account? <a href="{% url 'register' %}">Register</a></p>
+        </div>
+    </div>
+</body>
+</html>

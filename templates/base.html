@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Expense Tracker</title>
+  <style>
+    /* CSS styles for the Expense Tracker */
+    body {
+      background-color: #1f1f1f;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #333333;
+      padding: 10px;
+    }
+
+    h1 {
+      color: #ffffff;
+      margin: 0;
+    }
+
+    nav {
+      background-color: #333333;
+      padding: 10px;
+    }
+
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    nav ul li {
+      display: inline;
+      margin-right: 10px;
+    }
+
+    nav ul li a {
+      color: #ffffff;
+      text-decoration: none;
+      padding: 5px 10px;
+    }
+
+    main {
+      padding: 20px;
+    }
+
+    footer {
+      background-color: #333333;
+      padding: 10px;
+      text-align: center;
+    }
+
+    footer p {
+      color: #ffffff;
+      margin: 0;
+    }
+
+    /* Collapsible menu styles */
+    .menu {
+      display: none;
+    }
+
+    .menu-toggle {
+      display: block;
+      text-align: center;
+      color: #ffffff;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+
+    .menu-toggle:hover {
+      background-color: #555555;
+    }
+
+    .menu-toggle::before {
+      content: "\2630";
+      font-size: 20px;
+    }
+
+    .menu-list {
+      display: none;
+    }
+
+    .menu-list.active {
+      display: block;
+    }
+  </style>
+  <script>
+    // JavaScript for menu toggle functionality
+    function toggleMenu() {
+      var menuList = document.getElementById("menu-list");
+      menuList.classList.toggle("active");
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <h1>Expense Tracker</h1>
+  </header>
+
+  <nav>
+    <div class="menu-toggle" onclick="toggleMenu()">Menu</div>
+    <ul class="menu-list" id="menu-list">
+      <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+      <li><a href="{% url 'login' %}">Login</a></li>
+      <li><a href="{% url 'register' %}">Register</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    {% block content %}
+    {% endblock %}
+  </main>
+
+  {% if request.path == '/' %}
+    <footer>
+      <p>&copy; 2023 Expense Tracker. All rights reserved.</p>
+    </footer>
+  {% endif %}
+
+</body>
+</html>

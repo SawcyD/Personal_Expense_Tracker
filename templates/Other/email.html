@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Account Verification</title>
+  <style>
+    /* CSS styles for the email template */
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      color: #333333;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #dddddd;
+      background-color: #ffffff;
+    }
+
+    .message {
+      margin-bottom: 20px;
+    }
+
+    .verification-link {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #ffffff;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Account Verification</h1>
+    <div class="message">
+      <p>Hello {{ username }},</p>
+      <p>Please click the link below to verify your account:</p>
+    </div>
+    <a class="verification-link" href="{{ verification_link }}">Verify Account</a>
+  </div>
+</body>
+</html>

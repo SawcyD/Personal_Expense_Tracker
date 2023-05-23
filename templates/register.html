@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+        body {
+            background-color: #222;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            max-width: 500px;
+            padding: 20px;
+            background-color: #333;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            color: #fff;
+            font-size: 24px;
+            margin-top: 0;
+            text-align: center;
+        }
+
+        .register-form label {
+            display: block;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .register-form input[type="text"],
+        .register-form input[type="email"],
+        .register-form input[type="password"] {
+            background-color: #444;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            padding: 10px 10px;
+            margin-bottom: 10px;
+            width: 90%;
+        }
+
+        .register-form button {
+            background-color: #4caf50;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            padding: 10px 20px;
+            cursor: pointer;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Register</h2>
+        <form class="register-form" method="POST" action="{% url 'register' %}">
+            {% csrf_token %}
+            <label>
+                <input type="text" name="username" placeholder="Username">
+            </label>
+            <label>
+                <input type="email" name="email" placeholder="Email">
+            </label>
+            <label>
+                <input type="password" name="password" placeholder="Password">
+            </label>
+            <button type="submit">Register</button>
+        </form>
+        <div class="footer">
+            <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
+        </div>
+    </div>
+</body>
+</html>
