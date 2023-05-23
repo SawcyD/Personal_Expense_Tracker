@@ -83,7 +83,7 @@ def login_view(request):
         username = request.POST.get ('username')
         password = request.POST.get ('password')
 
-        # Authenticate user TODO: Use Django's built-in authentication
+        # Authenticate user
         user = authenticate (username = username, password = password)
 
         if user is not None:
