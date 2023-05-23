@@ -1,0 +1,35 @@
+<!-- add_bank.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdn.plaid.com/link/v2/stable/link-initialize.js"></script>
+</head>
+<body>
+    <button id="add-bank-btn">Add Bank</button>
+
+    <script>
+        document.getElementById('add-bank-btn').addEventListener('click', function() {
+            // Initialize Plaid Link
+            var linkHandler = Plaid.create({
+                token: '{{ link_token }}',
+                onSuccess: function(publicToken, metadata) {
+                    // Handle successful Plaid Link integration
+                    // Send the public token to your server to exchange for an access token
+                    // You can make an AJAX request here or submit a form to your server
+                    // Example: sendPublicTokenToServer(publicToken);
+                    console.log('Public Token:', publicToken);
+                },
+                onExit: function(err, metadata) {
+                    // Handle when the user exits Plaid Link
+                    if (err != null) {
+                        // Handle any error that occurred during the integration
+                        console.error('Plaid error:', err);
+                    }
+                }
+            });
+
+            linkHandler.open();
+        });
+    </script>
+</body>
+</html>

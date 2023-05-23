@@ -98,6 +98,12 @@ DATABASES = {
     }
 }
 
+PLAID_CLIENT_ID = '63c4fe924a951a00131896e8'
+PLAID_SECRET = 'f16eff866fa2154fc2f01457c2fccb'
+PLAID_PUBLIC_KEY = 'your_plaid_public_key'
+PLAID_ENV = 'production'  # Use 'development' or 'production' for live environment
+
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators

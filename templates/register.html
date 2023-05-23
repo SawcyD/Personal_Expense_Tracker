@@ -64,6 +64,30 @@
             margin-top: 20px;
             text-align: center;
         }
+        #password-strength-meter {
+          width: 200px;
+          height: 10px;
+          background-color: #ccc;
+          margin-bottom: 10px;
+        }
+
+        #password-strength-bar {
+          height: 100%;
+          width: 0;
+        }
+
+        .password-weak {
+          background-color: #ff4d4d;
+        }
+
+        .password-medium {
+          background-color: #ffd633;
+        }
+
+        .password-strong {
+          background-color: #2ecc71;
+        }
+
     </style>
 </head>
 <body>
@@ -72,14 +96,57 @@
         <form class="register-form" method="POST" action="{% url 'register' %}">
             {% csrf_token %}
             <label>
-                <input type="text" name="username" placeholder="Username">
+                <input type="text" name="username" placeholder="Username" required>
             </label>
             <label>
-                <input type="email" name="email" placeholder="Email">
+                <input type="email" name="email" placeholder="Email" required>
             </label>
             <label>
-                <input type="password" name="password" placeholder="Password">
+                <input type="password" name="password" placeholder="Password" required>
             </label>
+            <label>
+                <input type="password" name="password2" placeholder="Confirm Password" required>
+            </label>
+            <div id="password-strength-meter">
+                <div id="password-strength-bar"></div>
+            </div>
+            <script>
+                $(document).ready(function() {
+                  $('#id_password').keyup(function() {
+                    var password = $(this).val();
+                    var strengthBar = $('#password-strength-bar');
+                    var strength = 0;
+
+                    // Evaluate password strength
+                    if (password.match(/[a-z]+/)) {
+                      strength += 1;
+                    }
+                    if (password.match(/[A-Z]+/)) {
+                      strength += 1;
+                    }
+                    if (password.match(/[0-9]+/)) {
+                      strength += 1;
+                    }
+                    if (password.match(/[$@#&!]+/)) {
+                      strength += 1;
+                    }
+
+                    // Update strength bar based on the strength value
+                    if (strength == 0) {
+                      strengthBar.removeClass().addClass('password-weak').width('0%');
+                    } else if (strength <= 2) {
+                      strengthBar.removeClass().addClass('password-medium').width('50%');
+                    } else if (strength <= 3) {
+                      strengthBar.removeClass().addClass('password-strong').width('75%');
+                    } else {
+                      strengthBar.removeClass().addClass('password-strong').width('100%');
+                    }
+                  });
+                });
+
+            </script>
+
+
             <button type="submit">Register</button>
         </form>
         <div class="footer">
